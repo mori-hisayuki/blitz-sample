@@ -1,0 +1,27 @@
+version: '3.2'
+services:
+ node:
+    container_name: local-node
+    # ホスト名を明示的に指定する
+    hostname: local-node
+    build:
+      context: .
+      dockerfile: ./container/Dockerfile
+      args:
+        USER_ID: 1000
+        USER_NAME: vscode
+        GROUP_ID: 1000
+        GROUP_NAME: vscode
+    env_file: devcontainer.env
+    environment:
+      - TZ=JST-9
+    ports:
+      - 80:80
+      - 8080:8080
+      - 3000:3000
+      - 5500:5500
+    volumes:
+      - ~/.aws:/home/vscode/.aws
+      - ~/.ssh:/home/vscode/.ssh
+      - ./develop:/home/vscode/develop
+    command: /bin/sh -c "while sleep 1000; do :; done"
