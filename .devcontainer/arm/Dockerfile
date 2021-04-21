@@ -71,8 +71,19 @@ RUN set -x \
     nodejs \
     && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
+# install awscli (arm)
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip" \
+    && unzip awscliv2.zip \
+    && ./aws/install
+
 # install yarn
 RUN npm install -g yarn
+
+RUN set -x \
+    && yarn global add \
+    create-react-app \
+    gatsby-cli \
+    @nestjs/cli
 
 USER ${USER_NAME}
 

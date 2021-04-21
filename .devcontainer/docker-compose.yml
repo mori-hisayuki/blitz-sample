@@ -6,7 +6,7 @@ services:
     hostname: local-node
     build:
       context: .
-      dockerfile: ./container/Dockerfile
+      dockerfile: ./amd/Dockerfile
       args:
         USER_ID: 1000
         USER_NAME: vscode
