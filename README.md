@@ -1,12 +1,10 @@
-# Britz.js sample
-
+# React Container
 
 ## 環境変数
 
 `.devecontainer`の直下に`devcontainer.env`ファイルを配置すると読み込まれる。
 
 `devcontainer.env`がないとコンテナ起動時にエラーになるため、空でも用意する。
-
 
 ## Githubへの接続
 
