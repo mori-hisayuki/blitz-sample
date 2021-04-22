@@ -23,5 +23,5 @@ services:
     volumes:
       - ~/.aws:/home/vscode/.aws
       - ~/.ssh:/home/vscode/.ssh
-      - ./develop:/home/vscode/develop
+      - ../develop:/home/vscode/develop
     command: /bin/sh -c "while sleep 1000; do :; done"

@@ -63,10 +63,10 @@ RUN set -x \
     && mkdir -p /home/${USER_NAME}/.vscode-server/extensions \
     && chown -R vscode:vscode /home/${USER_NAME}/.vscode-server
 
-# node14 install
+# node15 install
 RUN set -x \
     && apt-get -y update \
-    && curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
+    && curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
     && apt-get install -y --no-install-recommends \
     nodejs \
     && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
@@ -83,7 +83,9 @@ RUN set -x \
     && yarn global add \
     create-react-app \
     gatsby-cli \
-    @nestjs/cli
+    @nestjs/cli \
+    blitz \
+    vercel
 
 USER ${USER_NAME}
 
