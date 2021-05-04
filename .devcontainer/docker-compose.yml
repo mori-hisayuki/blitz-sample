@@ -1,5 +1,25 @@
 version: '3.2'
 services:
+  # MySQL
+  local-db:
+    image: mysql:8.0.23
+    container_name: local-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: DEVELOP_DATABASE
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      # dockerコンテナとして起動したときに、ここにあるSQL文を実行
+      - ./mysql/init:/docker-entrypoint-initdb.d
+      # 永続化するときにマウントするdir
+      - db-store:/var/lib/mysql
+      # logの出力先
+      - ./mysql/logs:/var/log/mysql
+    ports:
+      - 3306:3306
  node:
     container_name: local-node
     # ホスト名を明示的に指定する
