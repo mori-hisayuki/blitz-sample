@@ -45,7 +45,8 @@
 		"austin.vscode-twitter",
 		"streetsidesoftware.code-spell-checker",
 		"ritwickdey.liveserver",
-		"ms-vsliveshare.vsliveshare"
+		"ms-vsliveshare.vsliveshare",
+		"prisma.prisma"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
