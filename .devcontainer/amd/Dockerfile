@@ -66,7 +66,7 @@ RUN set -x \
 # node15 install
 RUN set -x \
     && apt-get -y update \
-    && curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
+    && curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
     && apt-get install -y --no-install-recommends \
     nodejs \
     && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
