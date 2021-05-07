@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   # MySQL
-  local-db:
+  local-mysql:
     image: mysql:8.0.23
     container_name: local-mysql
     environment:
@@ -20,7 +20,7 @@ services:
       - ./mysql/logs:/var/log/mysql
     ports:
       - 3306:3306
- node:
+  node:
     container_name: local-node
     # ホスト名を明示的に指定する
     hostname: local-node
@@ -39,8 +39,10 @@ services:
       - 80:80
       - 8080:8080
       - 3000:3000
-      - 5500:5500
+      - 5555:5555
     volumes:
       - ~/.aws:/home/vscode/.aws
       - ~/.ssh:/home/vscode/.ssh
     command: /bin/sh -c "while sleep 1000; do :; done"
+volumes:
+  db-store:
