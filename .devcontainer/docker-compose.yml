@@ -6,7 +6,7 @@ services:
     hostname: local-node
     build:
       context: .
-      dockerfile: ./amd/Dockerfile
+      dockerfile: ./arm/Dockerfile
       args:
         USER_ID: 1000
         USER_NAME: vscode
@@ -23,5 +23,4 @@ services:
     volumes:
       - ~/.aws:/home/vscode/.aws
       - ~/.ssh:/home/vscode/.ssh
-      - ../develop:/home/vscode/develop
     command: /bin/sh -c "while sleep 1000; do :; done"
